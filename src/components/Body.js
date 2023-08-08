@@ -95,7 +95,7 @@ const Body = () => {
             className="ml-10 p-2 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-md"
             onClick={() => {
               const filteredItems = listOfRestaurants?.filter(
-                (res) => res?.info?.avgRating > 4
+                (res) => res?.info?.avgRating > 3
               );
               setFilteredRestaurants(filteredItems);
             }}
