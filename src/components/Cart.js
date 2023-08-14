@@ -150,11 +150,11 @@ const Cart = () => {
   return userId ? (
     <div className="bg-gray-100 h-[90vh] w-[100vw]">
       {cartItem?.length > 0 ? (
-        <div className="w-[80%] ml-[28rem] mt-20">
+        <div className="mt-44">
           {cartItem?.map((item) => (
             <div
               key={item?.id}
-              className="w-[70%] p-4 bg-white flex justify-between"
+              className="w-[70%] m-auto p-4 bg-white flex justify-between"
             >
               <p className="w-1/3 text-2xl text-gray-600">{item?.name}</p>
 
@@ -180,11 +180,11 @@ const Cart = () => {
               </p>
             </div>
           ))}
-          <div className="w-[70%] p-4 border-t-2 border-green-400 bg-white flex justify-between">
+          <div className="w-[70%] m-auto p-4 border-t-2 border-green-400 bg-white flex justify-between">
             <p className="font-bold text-2xl">TO PAY</p>
             <p className="font-bold text-2xl w-1/12">₹{amount?.toFixed()}</p>
           </div>
-          <div className="flex">
+          <div className="flex w-[70%] m-auto justify-between">
             <button
               className="font-bold rounded-lg hover:bg-yellow-400 mt-5 bg-yellow-500 text-white p-2"
               onClick={clearCartHandler}
@@ -197,7 +197,7 @@ const Cart = () => {
                   onClick={() =>
                     submitHandler(amount?.toFixed(), cartItem, newEmailId)
                   }
-                  className="font-bold rounded-lg ml-[49rem] hover:bg-green-400 mt-5 bg-green-500 text-white p-2"
+                  className="font-bold rounded-lg hover:bg-green-400 mt-5 bg-green-500 text-white p-2"
                 >
                   PLACE ORDER
                 </button>
@@ -216,18 +216,20 @@ const Cart = () => {
       ) : (
         <>
           {!isLoading && cartItem?.length === 0 ? (
-            <div className="w-[30%] m-auto mt-32">
-              <img alt="empty-cart" src={EMPTY_CART} />
-              <h1 className="ml-32 font-bold text-2xl">Your cart is empty</h1>
-              <p className="ml-12">
+            <div className="w-full m-auto justify-center mt-28">
+              <img className="m-auto justify-center" alt="empty-cart" src={EMPTY_CART} />
+              <div className="w-[30%] text-center m-auto">
+              <h1 className="font-bold text-2xl">Your cart is empty</h1>
+              <p>
                 You can go to home page to view more restaurants
               </p>
               <button
-                className="bg-orange-500 ml-24 rounded-lg mt-10 text-white font-bold p-3"
+                className="bg-orange-500 rounded-lg mt-10 text-white font-bold p-3"
                 onClick={() => navigate("/")}
               >
                 SEE RESTAURANTS NEAR YOU
               </button>
+              </div>
             </div>
           ) : (
             <CartShimmer />

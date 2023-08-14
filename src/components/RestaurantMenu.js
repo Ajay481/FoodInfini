@@ -29,7 +29,7 @@ const RestaurantMenu = () => {
     );
 
   return (
-    <div className="flex bg-white w-full justify-center">
+    <div className="flex flex-wrap bg-white w-full justify-center">
       <div>
         <h2 className="font-bold text-2xl">{name}</h2>
         <img src={CDN_URL + cloudinaryImageId} alt="food" />

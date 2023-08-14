@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 import { CARD_1, CARD_2, CARD_3, CARD_4, FETCH_DATA } from "../utils/constants";
+import Footer from "./Footer";
 
 const Body = () => {
   const [listOfRestaurants, setListOfRestaurants] = useState([]);
@@ -50,32 +51,47 @@ const Body = () => {
   if (listOfRestaurants < 1) return <BodyShimmer />;
 
   return (
-    <div className="bg-white m-2 w-full h-[50rem] overflow-scroll">
+    <div className="bg-white w-full h-[50rem] border-box">
       <div>
         <div>
-          <div className="flex w-[100%] h-[21rem] p-5 justify-evenly bg-black">
-            {
-              <img
-                className="w-72 h-72 cursor-pointer"
-                alt="card-image-1"
-                src={CARD_1}
-              />
-            }
-            {
-              <img
-                className="w-72 h-72 cursor-pointer"
-                alt="card-image-2"
-                src={CARD_2}
-              />
-            }
-            {
-              <img
-                className="w-72 h-72 cursor-pointer"
-                alt="card-image-3"
-                src={CARD_3}
-              />
-            }
-            {<img className="w-72 h-72 cursor-pointer" src={CARD_4} />}
+          <div className="w-[100%] bg-black">
+            <div className="flex w-[80%] m-auto justify-between">
+              {
+                <div className="max-w-full">
+                  <img
+                    className="w-64 h-[100%]  cursor-pointer object-contain border-box md:object-scale-down"
+                    alt="card-image-1"
+                    src={CARD_1}
+                  />
+                </div>
+              }
+              {
+                <div className="max-w-full">
+                  <img
+                    className="w-64 h-[90%] mt-3 cursor-pointer object-contain border-box md:object-scale-down"
+                    alt="card-image-2"
+                    src={CARD_2}
+                  />
+                </div>
+              }
+              {
+                <div className="max-w-full">
+                  <img
+                    className="h-[100%] w-64 cursor-pointer object-contain border-box md:object-scale-down"
+                    alt="card-image-3"
+                    src={CARD_3}
+                  />
+                </div>
+              }
+              {
+                <div className="max-w-full">
+                  <img
+                    className="h-[100%] w-64 cursor-pointer object-contain border-box md:object-scale-down"
+                    src={CARD_4}
+                  />
+                </div>
+              }
+            </div>
           </div>
           <input
             className="border border-black p-2 rounded-lg mt-5 ml-[35%]"
@@ -103,7 +119,7 @@ const Body = () => {
             Top Rated Restaurants
           </button>
         </div>
-        <div className="flex flex-wrap">
+        <div className="self-center grid gap-x-8 gap-y-4 grid-cols-4">
           {filteredRestaurants?.map((restaurant) => (
             <Link
               to={"/restaurant/" + restaurant?.info?.id}
@@ -114,6 +130,7 @@ const Body = () => {
           ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

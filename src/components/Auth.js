@@ -57,7 +57,7 @@ const Auth = () => {
   if (!isSignUpOpen) return null;
 
   return (
-    <div className="w-[22rem] p-3 fixed bg-blend-overlay top-20 h-[88vh] bg-white">
+    <div className="w-[22rem] p-3 fixed top-20 h-full bg-white">
       <button
         className="bg-red-500 text-white font-bold px-2 py-1 ml-64 rounded-lg"
         onClick={() => dispatch(closeMenu())}
