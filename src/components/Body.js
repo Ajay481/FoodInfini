@@ -28,14 +28,26 @@ const Body = () => {
     setListOfRestaurants(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants ||
+        json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants ||
+        json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants ||
         json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants 
+          ?.restaurants ||
+        json?.data?.cards[6]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
     );
     setFilteredRestaurants(
       json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle
         ?.restaurants ||
+        json?.data?.cards[3]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants ||
+        json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants ||
         json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle
-          ?.restaurants 
+          ?.restaurants ||
+        json?.data?.cards[6]?.card?.card?.gridElements?.infoWithStyle
+          ?.restaurants
     );
   };
 
@@ -111,7 +123,7 @@ const Body = () => {
             className="ml-10 p-2 bg-cyan-600 hover:bg-cyan-500 text-white font-bold rounded-md"
             onClick={() => {
               const filteredItems = listOfRestaurants?.filter(
-                (res) => res?.info?.avgRating > 3
+                (res) => res?.info?.avgRating > 3.5
               );
               setFilteredRestaurants(filteredItems);
             }}
